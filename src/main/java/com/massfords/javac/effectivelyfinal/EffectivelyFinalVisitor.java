@@ -40,7 +40,6 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
      * Keeps track of the compilation unit since it's needed to report errors
      * @param node unit we're compiling
      * @param names set of non-final param names in scope
-     * @return
      */
     @Override
     public Void visitCompilationUnit(CompilationUnitTree node, Set<Name> names) {
@@ -62,7 +61,7 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
      *
      *     MyClass mc = new MyClass() {
      *         void differentMethod(int c, int d) {
-     *             a = c + d; // <--- we don't need to check for this since javac will catch for us
+     *             a = c + d; // :--- we don't need to check for this since javac will catch for us
      *         }
      *     }
      * }
@@ -75,7 +74,6 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
      *
      * @param node method we're visiting
      * @param nonFinalParamsInScope params will be ignored since we'll reset when we scan from here
-     * @return
      */
     @Override
     public Void visitMethod(MethodTree node, Set<Name> nonFinalParamsInScope) {
@@ -99,7 +97,6 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
      *
      * @param assignmentTree assignment AST node
      * @param nonFinalParamsInScope params to check against the LHS of the assignment
-     * @return
      */
     @Override
     public Void visitAssignment(AssignmentTree assignmentTree, Set<Name> nonFinalParamsInScope) {
