@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.massfords</groupId>
     <artifactId>effectively-final</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>Javac Effectively Final Compiler Plugin</name>
     <description>Javac plugin that requires method parameters to either be
         explicitly final or effectively final. This enforces the best practice
@@ -22,7 +22,6 @@
         <url>https://github.com/massfords/effectively-final</url>
         <connection>scm:git:git://github.com/massfords/effectively-final.git</connection>
         <developerConnection>scm:git:git@github.com:massfords/effectively-final.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
     <distributionManagement>
         <snapshotRepository>
