@@ -27,7 +27,7 @@ public class EffectivelyFinalTaskListener implements TaskListener {
 
     /**
      * Kicks off the scan if we've just finished the analyze phase
-     * @param e
+     * @param e event
      */
     @Override
     public void finished(TaskEvent e) {

@@ -38,8 +38,8 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
 
     /**
      * Keeps track of the compilation unit since it's needed to report errors
-     * @param node
-     * @param names
+     * @param node unit we're compiling
+     * @param names set of non-final param names in scope
      * @return
      */
     @Override
@@ -73,8 +73,8 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
      * It's tempting to not traverse if all of the params are final or it has no params but there could
      * be something in the body like an inner class that has an assignment to one of its own params
      *
-     * @param node
-     * @param nonFinalParamsInScope
+     * @param node method we're visiting
+     * @param nonFinalParamsInScope params will be ignored since we'll reset when we scan from here
      * @return
      */
     @Override
@@ -97,8 +97,8 @@ public class EffectivelyFinalVisitor extends TreePathScanner<Void, Set<Name>> {
      * Thus, a = 5; would be flagged by array[0] = "foo" would not be flagged. The left hand side of the assignment
      * operation must be an identifier in order for us to flag it.
      *
-     * @param assignmentTree
-     * @param nonFinalParamsInScope
+     * @param assignmentTree assignment AST node
+     * @param nonFinalParamsInScope params to check against the LHS of the assignment
      * @return
      */
     @Override
