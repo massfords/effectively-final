@@ -85,3 +85,26 @@ You need to tell the maven compiler plugin to use this plugin during compilation
 </plugin>
 
 ```
+
+# Gradle Config
+
+Import the library on java compiler classpath:
+
+```groovy
+dependencies {
+    annotationProcessor 'com.massfords:effectively-final:1.0'
+}
+```
+
+Then enable the plugin by add this this argument to javac:
+
+```groovy
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xplugin:EffectivelyFinal"
+        }
+    }
+}
+```
+
